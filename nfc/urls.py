@@ -1,5 +1,6 @@
 from django.urls import path,include
+from . import views
 
 urlpatterns = [
-    path("",include("nfc.urls")),
+    path("",views.routes,name = "get_attendance_routes"),
 ]
