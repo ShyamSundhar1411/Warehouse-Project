@@ -15,6 +15,8 @@ django-import-export = "^3.2.0"
 django-cors-headers = "^4.1.0"
 psycopg2 = "^2.9.6"
 django-environ = "^0.10.0"
+hypercorn = "^0.14.4"
+django-storages = {extras = ["azure"], version = "^1.13.2"}
 
 
 [build-system]
