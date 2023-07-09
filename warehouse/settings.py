@@ -128,7 +128,7 @@ STATICFILES_DIRS=[
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL  = '/media/'
 STATIC_ROOT=os.path.join(BASE_DIR,'static')
-STATIC_URL = '/static/'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -141,3 +141,6 @@ AZURE_ACCOUNT_NAME = os.getenv("ACCOUNT_NAME")
 AZURE_CUSTOM_DOMAIN = f'{AZURE_ACCOUNT_NAME}.blob.core.windows.net'
 STATIC_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
 MEDIA_URL = f'https://{AZURE_CUSTOM_DOMAIN}/{MEDIA_LOCATION}/'
+CSRF_TRUSTED_ORIGINS = [
+    'https://myapiwarehouse.azurewebsites.net'
+]
