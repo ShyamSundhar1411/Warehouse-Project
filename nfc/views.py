@@ -70,4 +70,3 @@ class AttendanceAPIView(generics.ListCreateAPIView):
     def get_queryset(self):
         return Attendance.objects.all()
     
-    

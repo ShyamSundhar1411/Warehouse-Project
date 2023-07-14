@@ -17,6 +17,7 @@ psycopg2 = "^2.9.6"
 django-environ = "^0.10.0"
 hypercorn = "^0.14.4"
 django-storages = {extras = ["azure"], version = "^1.13.2"}
+djangorestframework-simplejwt = {extras = ["crypto"], version = "^5.2.2"}
 
 
 [build-system]
