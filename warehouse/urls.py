@@ -23,7 +23,7 @@ from .auth_views import *
 from rest_framework_simplejwt.views import TokenObtainPairView,TokenRefreshView
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("",views.homeRoutes,name = "home_routes"),
+    path("",homeRoutes,name = "home_routes"),
     path("attendance/system/",include("nfc.urls")),
     path('api/users/login/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path("api/token/refresh/",TokenRefreshView.as_view(),name="token_refresh")

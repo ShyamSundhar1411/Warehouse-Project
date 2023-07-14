@@ -3,18 +3,13 @@ from .models import *
 from .serializers import *
 from django.shortcuts import render
 from rest_framework.decorators import api_view,permission_classes
+from rest_framework.permissions import IsAuthenticated,IsAdminUser
 from rest_framework.response import Response
 from rest_framework import generics
 from rest_framework import status
 # Create your views here.
 
-@api_view((['GET']))
-def homeRoutes(request):
-    routes = [
-        'attendance/system/',
-        'contact/book/'
-    ]
-    return Response(routes)
+
 @api_view(['GET'])
 def getRoutes(request):
     routes = [
@@ -52,6 +47,7 @@ def mark_attendance(request):
 ## Class Based Views
 class NFCUserAPIView(generics.ListCreateAPIView):
     model = NFCUser
+    permission_classes = [IsAdminUser]
     serializer_class = NFCUserSerializer
     
     def get_queryset(self):
@@ -59,6 +55,7 @@ class NFCUserAPIView(generics.ListCreateAPIView):
     
 class MeetingAPIView(generics.ListCreateAPIView):
     model = Meeting
+    permission_classes = [IsAdminUser]
     serializer_class = MeetingSerializer
     
     def get_queryset(self):
@@ -66,6 +63,7 @@ class MeetingAPIView(generics.ListCreateAPIView):
     
 class AttendanceAPIView(generics.ListCreateAPIView):
     model = Attendance
+    permission_classes = [IsAdminUser]
     serializer_class = AttendanceSerializer
     def get_queryset(self):
         return Attendance.objects.all()
